@@ -1,0 +1,64 @@
+
+
+  <div class="flex flex-row justify-center items-center h-screen">
+    <div class=" flex flex-col justify-center items-center bg-slate-200 rounded-md p-4 px-16 shadow-2xl">
+        <h2 class="text-2xl font-bold text-center ">Fill the Details</h2>
+        <div>
+            <div class="rounded-full justify-center flex m-2 mb-4">
+                <input class="rounded-full "  style="display: none;" #imageInput type="file" (change)="handleFileInput(imageInput.files)" />
+                <img class="w-24 h-24 rounded-full cursor-pointer object-contain" [src]="imageUrl" (click)="selectFile()"/>
+            </div>
+            <form class="grid grid-cols-4 gap-4">
+                <div  class="flex flex-col justify-center items-center">
+                    <mat-form-field  class=" w-full" >
+                        <mat-label>First Name</mat-label>
+                        <input class="w-full" #input placeholder="Enter your first name" matInput>                                   
+                    </mat-form-field>
+                </div>
+                <div  class="flex flex-col justify-center items-center">
+                    <mat-form-field>
+                        <mat-label>Last Name</mat-label>
+                        <input class="w-full" #input placeholder="Enter your last name" matInput>
+                      </mat-form-field>
+                </div>
+                <div  class="flex flex-col justify-center items-center">
+                    <mat-form-field>
+                        <mat-label>Email</mat-label>
+                        <input class="w-full" #input placeholder="Enter your email id" matInput>
+                      </mat-form-field>
+                </div>
+                <div  class="flex flex-col justify-center items-center">
+                    <mat-form-field>
+                        <mat-label>Mobile Number</mat-label>
+                        <input class="w-full" #input placeholder="Enter your mobile number" matInput>
+                      </mat-form-field>
+                </div>
+                <div class="flex flex-col justify-center items-center">
+                    <mat-form-field>
+                        <mat-label>Country</mat-label>
+                        <mat-select placeholder="Select Country" name="Country" (selectionChange)="stateList($event.value)" >
+                            <mat-option *ngFor="let item of countryList" [value]="item.id">
+                                {{item.country}}
+                              </mat-option>
+                        </mat-select>
+                    </mat-form-field>
+                </div>
+                <div class="flex flex-col justify-center items-center">
+                    <mat-form-field>
+                        <mat-label>State</mat-label>
+                        <mat-select placeholder="Select State" name="States" >
+                            <mat-option *ngFor="let item of states" [value]="item.id">
+                                {{item.state}}
+                              </mat-option>
+                        </mat-select>
+                    </mat-form-field>
+                </div>
+                <div  class="flex flex-col justify-center items-center">
+                    <mat-form-field>
+                        <mat-label>City</mat-label>
+                        <input class="w-full" #input placeholder="Enter your city name" matInput>
+                      </mat-form-field>
+                </div>
+            </form>
+        </div>
+    </div>
